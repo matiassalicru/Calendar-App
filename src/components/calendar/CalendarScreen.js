@@ -10,6 +10,8 @@ import { CalendarModal } from "./CalendarModal";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import "moment/locale/es";
+import { uiCloseModal, uiOpenModal } from "../../actions/ui";
+import { useDispatch } from "react-redux";
 moment.locale("es");
 
 const localizer = momentLocalizer(moment);
@@ -33,8 +35,11 @@ export const CalendarScreen = () => {
     localStorage.getItem("lastView") || "month"
   );
 
+  const dispatch = useDispatch()
+
   const onDoubleClick = (e) => {
-    console.log(e);
+    dispatch( uiOpenModal() )
+
   };
 
   const onSelectEvent = (e) => {
@@ -78,7 +83,7 @@ export const CalendarScreen = () => {
         }}
       />
 
-      <CalendarModal/>
+      <CalendarModal />
     </div>
   );
 };
