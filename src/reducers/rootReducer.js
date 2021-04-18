@@ -1,8 +1,8 @@
-import {combineReducers} from 'redux'
-import { uiReducer } from './uiReducer'
+import { combineReducers } from "redux";
+import { calendarReducer } from "./calendarReducer";
+import { uiReducer } from "./uiReducer";
 
 export const rootReducer = combineReducers({
-  
-  ui: uiReducer
-  
-})
+  ui: uiReducer,
+  calendar: calendarReducer,
+});

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import DateTimePicker from "react-datetime-picker";
 import moment from "moment";
 import Swal from "sweetalert2";
+import DateTimePicker from "react-datetime-picker";
+
 import { useDispatch, useSelector } from "react-redux";
 import { uiCloseModal } from "../../actions/ui";
 
@@ -29,7 +30,6 @@ export const CalendarModal = () => {
 
   const dispatch = useDispatch();
   const { modalOpen } = useSelector((state) => state.ui);
-
 
   const [formValues, setFormValues] = useState({
     title: "Evento",
@@ -65,7 +65,7 @@ export const CalendarModal = () => {
 
   const closeModal = () => {
     console.log("Closing...");
-    dispatch( uiCloseModal() )
+    dispatch(uiCloseModal());
   };
 
   const handleSubmit = (e) => {
@@ -93,7 +93,7 @@ export const CalendarModal = () => {
   return (
     <Modal
       // onAfterOpen={afterOpenModal}
-      isOpen={ modalOpen }
+      isOpen={modalOpen}
       onRequestClose={closeModal}
       style={customStyles}
       className="modal"
